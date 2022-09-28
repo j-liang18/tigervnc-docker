@@ -1,0 +1,9 @@
+FROM ubuntu:20.04
+
+ADD https://versaweb.dl.sourceforge.net/project/tigervnc/stable/1.12.0/ubuntu-20.04LTS/arm64/tigervncserver_1.12.0-1ubuntu1_arm64.deb \
+    /tigervncserver.deb
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    /tigervncserver.deb \
+    xkb-data \
+    && rm -rf /tigervncserver.deb /var/lib/apt/lists/*
